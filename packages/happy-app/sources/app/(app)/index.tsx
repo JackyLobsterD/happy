@@ -1,6 +1,6 @@
 import { RoundButton } from "@/components/RoundButton";
 import { useAuth } from "@/auth/AuthContext";
-import { Text, View, Image, Platform } from "react-native";
+import { Text, View, Image, Platform, ActivityIndicator } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import * as React from 'react';
 import { encodeBase64 } from "@/encryption/base64";
@@ -18,11 +18,50 @@ import { t } from '@/text';
 export default function Home() {
     const auth = useAuth();
     if (!auth.isAuthenticated) {
-        return <NotAuthenticated />;
+        // Single-user self-hosted fork: no manual "Create account" step.
+        // Auto-generate the local identity on first launch and go straight in.
+        return <AutoCreateAccount />;
     }
     return (
         <Authenticated />
     )
+}
+
+function AutoCreateAccount() {
+    const { theme } = useUnistyles();
+    const auth = useAuth();
+    const started = React.useRef(false);
+    const [failed, setFailed] = React.useState(false);
+
+    React.useEffect(() => {
+        if (started.current) return;
+        started.current = true;
+        (async () => {
+            try {
+                const secret = await getRandomBytesAsync(32);
+                const token = await authGetToken(secret);
+                if (token && secret) {
+                    await auth.login(token, encodeBase64(secret, 'base64url'));
+                    trackAccountCreated();
+                } else {
+                    setFailed(true);
+                }
+            } catch (error) {
+                console.error('Auto account creation failed', error);
+                setFailed(true);
+            }
+        })();
+    }, []);
+
+    // Fall back to the manual screen only if auto-create fails.
+    if (failed) {
+        return <NotAuthenticated />;
+    }
+    return (
+        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+            <ActivityIndicator color={theme.colors.text} />
+        </View>
+    );
 }
 
 function Authenticated() {
