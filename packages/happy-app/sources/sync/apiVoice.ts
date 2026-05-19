@@ -3,7 +3,7 @@ import {
     VoiceUsageResponseSchema,
     type VoiceConversationResponse,
     type VoiceUsageResponse,
-} from '@slopus/happy-wire';
+} from '@hjk/wire';
 import { AuthCredentials } from '@/auth/tokenStorage';
 import { getServerUrl } from './serverConfig';
 import { getHappyClientId } from './apiSocket';

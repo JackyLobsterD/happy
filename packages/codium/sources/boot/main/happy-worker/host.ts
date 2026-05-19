@@ -19,8 +19,8 @@ type PendingRequest = {
     reject: (error: Error) => void
 }
 
-const DEFAULT_SERVER_URL = 'https://api.cluster-fluster.com'
-const DEFAULT_WEBAPP_URL = 'https://app.happy.engineering'
+const DEFAULT_SERVER_URL = 'https://CHANGE_ME.invalid'
+const DEFAULT_WEBAPP_URL = 'https://CHANGE_ME.invalid'
 
 let worker: Worker | null = null
 let latestState: HappyStateSnapshot = {

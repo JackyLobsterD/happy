@@ -59,11 +59,11 @@ export const SettingsView = React.memo(function SettingsView() {
     const { connectTerminal, connectWithUrl, isLoading } = useConnectTerminal();
 
     const handleGitHub = async () => {
-        await openExternalUrl('https://github.com/slopus/happy');
+        await openExternalUrl('https://github.com/JackyLobsterD/happy');
     };
 
     const handleReportIssue = async () => {
-        await openExternalUrl('https://github.com/slopus/happy/issues');
+        await openExternalUrl('https://github.com/JackyLobsterD/happy/issues');
     };
 
     const handleSubscribe = async () => {
@@ -188,7 +188,7 @@ export const SettingsView = React.memo(function SettingsView() {
                                 t('modals.authenticateTerminal'),
                                 t('modals.pasteUrlFromTerminal'),
                                 {
-                                    placeholder: 'happy://terminal?...',
+                                    placeholder: 'hjk://terminal?...',
                                     confirmText: t('common.authenticate')
                                 }
                             );
@@ -385,7 +385,7 @@ export const SettingsView = React.memo(function SettingsView() {
                 <Item
                     title={t('settings.privacyPolicy')}
                     icon={<Ionicons name="shield-checkmark-outline" size={29} color="#007AFF" />}
-                    onPress={() => openExternalUrl('https://happy.engineering/privacy/')}
+                    onPress={() => openExternalUrl('https://github.com/JackyLobsterD/happy')}
                 />
                 <Item
                     title={t('settings.termsOfService')}

@@ -1,11 +1,11 @@
 {
   "$schema": "../../node_modules/@tauri-apps/cli/config.schema.json",
-  "productName": "Happy (dev)",
-  "identifier": "com.slopus.happy.dev",
+  "productName": "hjk (dev)",
+  "identifier": "com.hjk.app.dev",
   "app": {
     "windows": [
       {
-        "title": "Happy (dev)",
+        "title": "hjk (dev)",
         "width": 1680,
         "height": 1050,
         "titleBarStyle": "Overlay",

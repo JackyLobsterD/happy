@@ -671,45 +671,45 @@ ${chalk.bold('To clean up runaway processes:')} Use ${chalk.cyan('happy doctor c
     // Show help
     if (showHelp) {
       console.log(`
-${chalk.bold('happy')} - Claude Code On the Go
+${chalk.bold('hjk')} - Claude Code On the Go
 
 ${chalk.bold('Usage:')}
-  happy [options]         Start Claude with mobile control
-  happy auth              Manage authentication
-  happy resume            Resume a previous Happy session by Happy session ID
-  happy codex             Start Codex mode
-  happy gemini            Start Gemini mode (ACP)
-  happy acp               Start a generic ACP-compatible agent
-  happy connect           Connect AI vendor API keys
-  happy sandbox           Configure and manage OS-level sandboxing
-  happy notify            Send push notification
-  happy daemon            Manage background service that allows
+  hjk [options]         Start Claude with mobile control
+  hjk auth              Manage authentication
+  hjk resume            Resume a previous hjk session by hjk session ID
+  hjk codex             Start Codex mode
+  hjk gemini            Start Gemini mode (ACP)
+  hjk acp               Start a generic ACP-compatible agent
+  hjk connect           Connect AI vendor API keys
+  hjk sandbox           Configure and manage OS-level sandboxing
+  hjk notify            Send push notification
+  hjk daemon            Manage background service that allows
                             to spawn new sessions away from your computer
-  happy doctor            System diagnostics & troubleshooting
+  hjk doctor            System diagnostics & troubleshooting
 
 ${chalk.bold('Examples:')}
-  happy                    Start session
-  happy resume cmmij8      Resume a previous session by Happy session ID
-  happy --yolo             Start with bypassing permissions
-                            happy sugar for --dangerously-skip-permissions
-  happy --chrome           Enable Chrome browser access for this session
-  happy --no-chrome        Disable Chrome even if default is on
-  happy --no-sandbox       Disable Happy sandbox for this session
-  happy --js-runtime bun   Use bun instead of node to spawn Claude Code
-  happy --claude-env ANTHROPIC_BASE_URL=http://127.0.0.1:3456
+  hjk                    Start session
+  hjk resume cmmij8      Resume a previous session by hjk session ID
+  hjk --yolo             Start with bypassing permissions
+                            hjk sugar for --dangerously-skip-permissions
+  hjk --chrome           Enable Chrome browser access for this session
+  hjk --no-chrome        Disable Chrome even if default is on
+  hjk --no-sandbox       Disable hjk sandbox for this session
+  hjk --js-runtime bun   Use bun instead of node to spawn Claude Code
+  hjk --claude-env ANTHROPIC_BASE_URL=http://127.0.0.1:3456
                            Use a custom API endpoint (e.g., claude-code-router)
-  happy acp gemini         Start Gemini via generic ACP runner
-  happy acp -- opencode --acp
+  hjk acp gemini         Start Gemini via generic ACP runner
+  hjk acp -- opencode --acp
                            Start a custom ACP command
-  happy acp opencode --verbose
+  hjk acp opencode --verbose
                            Print raw ACP backend/envelope events
-  happy auth login --force Authenticate
-  happy doctor             Run diagnostics
+  hjk auth login --force Authenticate
+  hjk doctor             Run diagnostics
 
-${chalk.bold('Happy supports ALL Claude options!')}
-  Use any claude flag with happy as you would with claude. Our favorite:
+${chalk.bold('hjk supports ALL Claude options!')}
+  Use any claude flag with hjk as you would with claude. Our favorite:
 
-  happy --resume
+  hjk --resume
 
 ${chalk.gray('─'.repeat(60))}
 ${chalk.bold.cyan('Claude Code Options (from `claude --help`):')}

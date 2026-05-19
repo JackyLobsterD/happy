@@ -9,10 +9,10 @@ require('../patches/fix-pierre-trees-preact-hooks.cjs');
 require('../patches/fix-rn-audio-api-cstddef.cjs');
 
 if (process.env.SKIP_HAPPY_WIRE_BUILD === '1') {
-  console.log('[postinstall] SKIP_HAPPY_WIRE_BUILD=1, skipping @slopus/happy-wire build');
+  console.log('[postinstall] SKIP_HAPPY_WIRE_BUILD=1, skipping @hjk/wire build');
   process.exit(0);
 }
 
-execSync('pnpm --filter @slopus/happy-wire build', {
+execSync('pnpm --filter @hjk/wire build', {
   stdio: 'inherit',
 });
