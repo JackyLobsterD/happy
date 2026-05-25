@@ -45,7 +45,7 @@ ENV HAPPY_BUILD_COMMIT_TIMESTAMP=$HAPPY_BUILD_COMMIT_TIMESTAMP
 COPY packages/happy-wire ./packages/happy-wire
 COPY packages/happy-app ./packages/happy-app
 
-RUN pnpm --filter @hjk/wire build
+RUN pnpm --filter @happy/wire build
 RUN pnpm --filter happy-app exec expo export --platform web --output-dir dist
 
 # Stage 3: runtime with Nginx

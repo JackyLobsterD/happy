@@ -2,14 +2,14 @@ const { execFileSync } = require('node:child_process');
 
 const variant = process.env.APP_ENV || 'development';
 const name = {
-    development: "hjk (dev)",
-    preview: "hjk (preview)",
-    production: "hjk"
+    development: "Happy (dev)",
+    preview: "Happy (preview)",
+    production: "Happy"
 }[variant];
 const bundleId = {
-    development: "com.hjk.app.dev",
-    preview: "com.hjk.app.preview",
-    production: "com.hjk.app"
+    development: "com.happy.app.dev",
+    preview: "com.happy.app.preview",
+    production: "com.happy.app"
 }[variant];
 // Bring your own ElevenLabs agent: set EXPO_PUBLIC_ELEVENLABS_AGENT_ID.
 // No official agent id is baked in.
@@ -54,16 +54,16 @@ const buildMetadata = loadBuildMetadata();
 export default {
     expo: {
         name,
-        slug: "hjk",
+        slug: "happy",
         version: "1.7.0",
         runtimeVersion: "21",
         orientation: "default",
         icon: "./sources/assets/images/icon.png",
         // Variant-specific scheme so dev and prod don't fight over the same
-        // URL scheme when both are installed. Prod keeps the plain `hjk` (CLI
+        // URL scheme when both are installed. Prod keeps the plain `happy` (CLI
         // pairing URLs target it). Dev/preview get their own so deep links
         // route deterministically.
-        scheme: variant === 'production' ? "hjk" : `hjk${variant}`,
+        scheme: variant === 'production' ? "happy" : `happy${variant}`,
         userInterfaceStyle: "automatic",
         ios: {
             supportsTablet: true,
@@ -200,7 +200,7 @@ export default {
                 root: "./sources/app"
             },
             app: {
-                // Telemetry/monetization fully disabled for the isolated hjk fork.
+                // Telemetry/monetization fully disabled for the isolated happy fork.
                 postHogKey: undefined,
                 revenueCatAppleKey: undefined,
                 revenueCatGoogleKey: undefined,

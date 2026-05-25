@@ -69,9 +69,9 @@ ${chalk.bold('Examples:')}
   happy connect status
 
 ${chalk.bold('Notes:')} 
-  • You must be authenticated with hjk first (run 'hjk auth login')
-  • API keys are encrypted and stored securely on your hjk server
-  • You can manage your stored keys in your hjk web app
+  • You must be authenticated with Happy first (run 'happy auth login')
+  • API keys are encrypted and stored securely on your Happy server
+  • You can manage your stored keys in your Happy web app
 `);
 }
 

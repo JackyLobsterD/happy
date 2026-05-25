@@ -25,7 +25,7 @@ const args = [
 const bundledDependencies = new Set([
   // The published 0.1.0 package does not include the newest voice schemas yet.
   // Keep the server release unblocked by bundling the workspace copy.
-  '@hjk/wire',
+  '@happy/wire',
 ]);
 
 for (const dependency of Object.keys(pkg.dependencies ?? {})) {

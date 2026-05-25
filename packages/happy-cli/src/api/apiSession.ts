@@ -13,7 +13,7 @@ import { RpcHandlerManager } from './rpc/RpcHandlerManager';
 import { registerCommonHandlers } from '../modules/common/registerCommonHandlers';
 import { calculateCost } from '@/utils/pricing';
 import { shouldReconnect } from '@/utils/lidState';
-import { type SessionEnvelope, type SessionTurnEndStatus } from '@hjk/wire';
+import { type SessionEnvelope, type SessionTurnEndStatus } from '@happy/wire';
 import {
     closeClaudeTurnWithStatus,
     mapClaudeLogMessageToSessionEnvelopes,

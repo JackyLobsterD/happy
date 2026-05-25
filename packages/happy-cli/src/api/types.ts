@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import type { Update, UpdateMachineBody } from '@hjk/wire';
+import type { Update, UpdateMachineBody } from '@happy/wire';
 import { UsageSchema } from '@/claude/types'
 import type { SandboxConfig } from '@/persistence'
 
@@ -10,7 +10,7 @@ export {
   UpdateMachineBodySchema,
   UpdateSchema,
   UpdateSessionBodySchema,
-} from '@hjk/wire';
+} from '@happy/wire';
 export type {
   SessionMessage,
   SessionMessageContent,
@@ -18,7 +18,7 @@ export type {
   UpdateBody,
   UpdateMachineBody,
   UpdateSessionBody,
-} from '@hjk/wire';
+} from '@happy/wire';
 
 /**
  * Permission mode type - includes both Claude and Codex modes

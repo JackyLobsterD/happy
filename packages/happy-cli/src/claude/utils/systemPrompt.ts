@@ -17,7 +17,7 @@ const CO_AUTHORED_CREDITS = (() => trimIdent(`
     <main commit message>
 
     Generated with [Claude Code](https://claude.ai/code)
-    via hjk
+    via Happy
 
     Co-Authored-By: Claude <noreply@anthropic.com>
 `))();

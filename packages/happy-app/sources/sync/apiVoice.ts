@@ -3,7 +3,7 @@ import {
     VoiceUsageResponseSchema,
     type VoiceConversationResponse,
     type VoiceUsageResponse,
-} from '@hjk/wire';
+} from '@happy/wire';
 import { AuthCredentials } from '@/auth/tokenStorage';
 import { getServerUrl } from './serverConfig';
 import { getHappyClientId } from './apiSocket';

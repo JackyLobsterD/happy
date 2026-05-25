@@ -1,6 +1,6 @@
 import { z } from "zod";
 import * as crypto from "crypto";
-import { VoiceConversationResponseSchema, VoiceUsageResponseSchema } from "@hjk/wire";
+import { VoiceConversationResponseSchema, VoiceUsageResponseSchema } from "@happy/wire";
 import { type Fastify } from "../types";
 import { log } from "@/utils/log";
 
