@@ -59,7 +59,11 @@ export default {
         runtimeVersion: "21",
         orientation: "default",
         icon: "./sources/assets/images/icon.png",
-        scheme: "hjk",
+        // Variant-specific scheme so dev and prod don't fight over the same
+        // URL scheme when both are installed. Prod keeps the plain `hjk` (CLI
+        // pairing URLs target it). Dev/preview get their own so deep links
+        // route deterministically.
+        scheme: variant === 'production' ? "hjk" : `hjk${variant}`,
         userInterfaceStyle: "automatic",
         ios: {
             supportsTablet: true,
