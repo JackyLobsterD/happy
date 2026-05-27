@@ -3,39 +3,23 @@ import { claudeLocal, ExitCodeError } from "./claudeLocal";
 import { Session } from "./session";
 import { Future } from "@/utils/future";
 import { createSessionScanner } from "./utils/sessionScanner";
-import { randomUUID } from "node:crypto";
 
 export type LauncherResult = { type: 'switch' } | { type: 'exit', code: number };
 
 export async function claudeLocalLauncher(session: Session): Promise<LauncherResult> {
-
-    // Claude Code re-writes a {type:"custom-title"} line for every internal
-    // event after a /rename, so dedupe — only forward when the title actually
-    // changes.
-    let lastCustomTitle: string | undefined;
 
     // Create scanner
     const scanner = await createSessionScanner({
         sessionId: session.sessionId,
         workingDirectory: session.path,
         onMessage: (message) => {
-            // Claude Code's `/rename` writes `{type:"custom-title", customTitle:"..."}`
-            // lines into the jsonl. happy server only understands `summary`
-            // messages as title updates, so translate here. Raw claude CLI's
-            // own `{type:"summary"}` lines (written on --resume) fall through
-            // unchanged and update the title the same way.
-            if (message.type === 'custom-title') {
-                const title = (message as { customTitle?: string }).customTitle;
-                if (!title || title === lastCustomTitle) return;
-                lastCustomTitle = title;
-                session.client.sendClaudeSessionMessage({
-                    type: 'summary',
-                    summary: title,
-                    leafUuid: randomUUID(),
-                });
-                return;
-            }
-            session.client.sendClaudeSessionMessage(message);
+            // Forward everything, including summary messages. claude writes a
+            // {type:"summary", summary:"...", leafUuid:"..."} line into the
+            // jsonl whenever the user runs `/rename` (or on resume), and the
+            // server treats incoming summary session messages as a title update
+            // — so propagating them here gives us "claude /rename -> app card
+            // title" with zero prompt pollution and no extra wiring.
+            session.client.sendClaudeSessionMessage(message)
         }
     });
     
