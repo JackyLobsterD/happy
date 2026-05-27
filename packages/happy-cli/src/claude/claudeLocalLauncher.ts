@@ -12,11 +12,14 @@ export async function claudeLocalLauncher(session: Session): Promise<LauncherRes
     const scanner = await createSessionScanner({
         sessionId: session.sessionId,
         workingDirectory: session.path,
-        onMessage: (message) => { 
-            // Block SDK summary messages - we generate our own
-            if (message.type !== 'summary') {
-                session.client.sendClaudeSessionMessage(message)
-            }
+        onMessage: (message) => {
+            // Forward everything, including summary messages. claude writes a
+            // {type:"summary", summary:"...", leafUuid:"..."} line into the
+            // jsonl whenever the user runs `/rename` (or on resume), and the
+            // server treats incoming summary session messages as a title update
+            // — so propagating them here gives us "claude /rename -> app card
+            // title" with zero prompt pollution and no extra wiring.
+            session.client.sendClaudeSessionMessage(message)
         }
     });
     
