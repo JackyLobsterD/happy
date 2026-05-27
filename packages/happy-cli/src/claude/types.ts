@@ -48,6 +48,15 @@ export const RawJSONLinesSchema = z.discriminatedUnion("type", [
     leafUuid: z.string() // Used in getMessageKey()
   }).passthrough(),
 
+  // Custom title — written by Claude Code's `/rename` command. Carries the
+  // user's chosen title in `customTitle`. Translated into a summary message
+  // downstream so happy server treats it the same as a summary update.
+  z.object({
+    type: z.literal("custom-title"),
+    customTitle: z.string(),
+    sessionId: z.string().optional(),
+  }).passthrough(),
+
   // System message - validates uuid
   z.object({
     type: z.literal("system"),
